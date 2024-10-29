@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhores Escolas de São Paulo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>Melhores Escolas de São Paulo</h1>
+        </header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#schools">Escolas</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <input 
+                type="text" 
+                placeholder="Pesquisar escolas..." 
+                class="search-input"
+            />
+            <button class="sort-button">
+                Ordenar por Avaliação (Ascendente)
+            </button>
+        </div>
+        <main class="school-list">
+            <div class="school-card" onclick="showDetails('bandeirantes')">
+                <h2>Colégio Bandeirantes</h2>
+                <p>Focado no desenvolvimento integral dos alunos.</p>
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                </div>
+                <p>Rua Estela, 268 - Vila Mariana, São Paulo - SP</p>
+            </div>
+            <div class="school-card" onclick="showDetails('vera_cruz')">
+                <h2>Escola Vera Cruz</h2>
+                <p>Oferece uma formação humanista e crítica.</p>
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                </div>
+                <p>Rua Baumann, 73 - Vila Leopoldina, São Paulo - SP</p>
+            </div>
+            <div class="school-card" onclick="showDetails('santa_cruz')">
+                <h2>Colégio Santa Cruz</h2>
+                <p>Excelência acadêmica com formação em valores.</p>
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                </div>
+                <p>Av. Arruda Botelho, 255 - Alto de Pinheiros, São Paulo - SP</p>
+            </div>
+        </main>
+        <div class="school-details" id="details" style="display:none;">
+            <h2 id="school-name"></h2>
+            <p id="school-details"></p>
+            <iframe 
+                id="school-map" 
+                title="Mapa da Escola" 
+                width="100%" 
+                height="300" 
+                style="border: 0;"
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+            <h3>Comentários:</h3>
+            <ul id="school-comments">
+                <li>
+                    <strong>João</strong>: Excelente escola, minha filha adora! 
+                    <div class="comment-rating">
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                    </div>
+                </li>
+                <li>
+                    <strong>Maria</strong>: Ótimo ensino e infraestrutura! 
+                    <div class="comment-rating">
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                    </div>
+                </li>
+            </ul>
+            <button onclick="closeDetails()" class="close-button">Fechar</button>
+        </div>
+        <section id="contact" class="contact-section">
+            <h2>Contato</h2>
+            <form onsubmit="sendMessage(event)" class="contact-form">
+                <input type="text" placeholder="Seu Nome" required />
+                <input type="email" placeholder="Seu Email" required />
+                <textarea placeholder="Sua Mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+                Fale conosco pelo WhatsApp
+            </a>
+        </section>
+        <footer class="footer">
+            <p>&copy; 2024 Melhores Escolas de São Paulo. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showDetails(school) {
+            const details = {
+                bandeirantes: {
+                    name: 'Colégio Bandeirantes',
+                    details: 'O Colégio Bandeirantes é uma instituição de ensino reconhecida pela excelência acadêmica e formação integral dos alunos. Localizado em São Paulo, oferece uma ampla gama de atividades extracurriculares e um ambiente de aprendizado inovador.',
+                    map: 'https://maps.google.com/maps?q=Rua+Estela,+268+-+Vila+Mariana,+São+Paulo+-+SP&output=embed',
+                    comments: [
+                        { user: 'João', comment: 'Excelente escola, minha filha adora!', stars: 6 },
+                        { user: 'Maria', comment: 'Ótimo ensino e infraestrutura!', stars: 6 },
+                    ],
+                },
+                vera_cruz: {
+                    name: 'Escola Vera Cruz',
+                    details: 'A Escola Vera Cruz é conhecida por seu enfoque humanista e crítico na educação. Localizada em São Paulo, proporciona um ambiente acolhedor e estimulante, promovendo o desenvolvimento integral dos estudantes.',
+                    map: 'https://maps.google.com/maps?q=Rua+Baumann,+73+-+Vila+Leopoldina,+São+Paulo+-+SP&output=embed',
+                    comments: [
+                        { user: 'Carlos', comment: 'Muito boa, recomendo!', stars: 5 },
+                        { user: 'Ana', comment: 'Professores muito dedicados.', stars: 5 },
+                    ],
+                },
+                santa_cruz: {
+                    name: 'Colégio Santa Cruz',
+                    details: 'O Colégio Santa Cruz é uma instituição de ensino renomada, focada na excelência acadêmica e formação em valores. Localizado em São Paulo, oferece uma educação de alta qualidade, preparando os alunos para os desafios do futuro.',
+                    map: 'https://maps.google.com/maps?q=Av.+Arruda+Botelho,+255+-+Alto+de+Pinheiros,+São+Paulo+-+SP&output=embed',
+                    comments: [
+                        { user: 'Pedro', comment: 'Meus filhos estudam lá e adoram.', stars: 6 },
+                        { user: 'Paula', comment: 'Melhor escola da região.', stars: 6 },
+                    ],
+                },
+            };
+
+            const selectedSchool = details[school];
+            document.getElementById('school-name').innerText = selectedSchool.name;
+            document.getElementById('school-details').innerText = selectedSchool.details;
+            document.getElementById('school-map').src = selectedSchool.map;
+            const commentsList = document.getElementById('school-comments');
+            commentsList.innerHTML = '';
+            selectedSchool.comments.forEach(comment => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${comment.user}</strong>: ${comment.comment} <div class="comment-rating">${'⭐'.repeat(comment.stars)}</div>`;
+                commentsList.appendChild(li);
+            });
+            document.getElementById('details').style.display = 'block';
+        }
+
+        function closeDetails() {
+            document.getElementById('details').style.display = 'none';
+        }
+
+        function sendMessage(event) {
+            event.preventDefault();
+            alert('Mensagem enviada com sucesso!');
+        }
+    </script>
+</body>
+</html>
