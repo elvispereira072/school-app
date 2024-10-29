@@ -18,6 +18,10 @@ O **School App** é uma aplicação web desenvolvida para ajudar os usuários a 
 - Formulário de contato para envio de mensagens.
 - Integração com o WhatsApp para contato rápido.
 
+- Licença
+Este projeto está licenciado sob a MIT License.
+Sinta-se à vontade para ajustar qualquer parte que desejar!
+
 ## Como Usar
 
 1. Clone este repositório:
